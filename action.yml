@@ -5,7 +5,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  org-secret:  # organization secret
+  GITHUB_TOKEN:  # organization secret
     description: 'Secret defined at Org. level'
     required: true
 
