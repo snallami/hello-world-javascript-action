@@ -10,14 +10,21 @@ try {
   
   //Get octokit reference
   const octokit = new Octokit();
+  
+  (async () => {
+
 const { response } = await octokit.request('GET /orgs/{org}/teams/{nameToGreet}', {
   org: 'myownorgtest',
   team_slug: nameToGreet
 });
-
-console.log(`********************************`)
+    
+    console.log(`********************************`)
 console.log(response)
 console.log(`********************************`)
+    
+    })();
+
+
 
   
   const time = (new Date()).toTimeString();
