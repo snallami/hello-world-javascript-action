@@ -4,7 +4,9 @@ const github = require('@actions/github');
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
+  const orgSecret = core.getInput('org-secret');
   console.log(`Hello  ${nameToGreet}!, Good morning`);
+  console.log(`Hello  ${orgSecret}.substring(1,4)!, Good morning`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
