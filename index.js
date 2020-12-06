@@ -1,14 +1,15 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { Octokit } = require("@octokit/action");
 
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
-  const orgSecret = core.getInput('org-secret');
+  const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
   console.log(`Hello  ${nameToGreet}!, Good morning`);
   
   //Get octokit reference
-  const octokit = github.getOctokit(orgSecret);
+  const octokit = new Octokit();
 const { response } = await octokit.request('GET /orgs/{org}/teams/{nameToGreet}', {
   org: 'myownorgtest',
   team_slug: nameToGreet
