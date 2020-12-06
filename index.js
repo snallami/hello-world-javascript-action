@@ -13,7 +13,7 @@ try {
   
   (async () => {
 
-const { response } = await octokit.request('GET /orgs/{org}/teams/{nameToGreet}', {
+const { response } = await octokit.request('GET /orgs/{org}/teams/{nameToGreet}/members', {
   org: 'myownorgtest',
   team_slug: nameToGreet
 });
